@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
   try {
     const result = await cloud.openapi.subscribeMessage.send({
       touser: event.openid,  
-	  page: 'pages/getCoupon/getCoupon',
+	  page: 'pages/index/index',
 	  lang: 'zh_CN',  
 	  data: {
 	      thing1: {
