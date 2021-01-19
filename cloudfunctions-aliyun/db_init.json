@@ -47,17 +47,41 @@
 					"path": "ele-recommend-price/pages/guest/index?inviterId=4f1709d&chInfo=ch_wechat_chsub_Card"
 				}
 			},
+			{
+				"bannerPic": "https://shop.2dan88.com/minipro/mt.jpg",
+				"icon": "/static/coupon/meituan.png",
+				"minapp": {
+					"appid": "wx2c348cf579062e56",
+					"path": "outer_packages/r2xinvite/coupon/coupon?inviteCode=NnOIp-QOs8SiYF1dcSlL5r8phPrCf6qkH7evMyjIoup2NXxNCLYcBbd3bqpv2X2IpezQkri1hk5-JGRnI-3Sw0QJSeo3rFHcjtwvPAEAIEGGXewhmBoznJ9mmTpwcUThOyW-wqawaOWYCVLCO5rE-z2uus1pWNK5LuSESBx1ifU"
+				},
+				"name": "美团红包",
+				"tabId": 2,
+				"type": 1,
+				"url": ""
+			},
 			// {
-			// 	"name": "美团外卖红包",
+			// 	"bannerPic": "https://shop.2dan88.com/minipro/mthb4.jpg",
 			// 	"icon": "/static/coupon/meituan.png",
-			// 	"bannerPic": "/static/coupon/meituan_banner.png",
-			// 	"url": "https://act.meituan.com/clover/page/adunioncps/share_coupon_new?utmSource=4531&utmMedium=9BDCFD11C901C5B1CA2A882AE3E20353&f_token=0",
-			// 	"type": 1,
-			// 	"tabId": 2,
 			// 	"minapp": {
 			// 		"appid": "wxde8ac0a21135c07d",
-			// 		"path": "index/pages/h5/h5.html?activity=OwMkGzn6oK&weburl=https://act.meituan.com/clover/page/adunioncps/share_coupon_new?utmSource=4531&utmMedium=9BDCFD11C901C5B1CA2A882AE3E20353&f_token=0"
-			// 	}
+			// 		"path":"index/pages/h5/h5.html?noshare=1&f_openId=0&weburl=https%3A%2F%2Fact6.meituan.com%2Fclover%2Fpage%2Fadunioncps%2Fshare_coupon_new%3FutmSource%3D4531%26utmMedium%3D9BDCFD11C901C5B1CA2A882AE3E20353%26activity%3DOwMkGzn6oK&f_userId=0&f_token=1"
+			// 	},
+			// 	"name": "第四个红包",
+			// 	"tabId": 2,
+			// 	"type": 1,
+			// 	"url": "https://act6.meituan.com/clover/page/adunioncps/share_coupon_new?utmSource=4531&utmMedium=9BDCFD11C901C5B1CA2A882AE3E20353&activity=OwMkGzn6oK&f_userId=0&f_token=1"
+			// },
+			// {
+			// 	"bannerPic": "https://shop.2dan88.com/minipro/mthb5.jpg",
+			// 	"icon": "/static/coupon/meituan.png",
+			// 	"minapp": {
+			// 		"appid": "wxde8ac0a21135c07d",
+			// 		"path":"index/pages/h5/h5.html?weburl=https%3A%2F%2Frunion.meituan.com%2Furl%3Fkey%3D55eeb1ec1cabb50bcba3261cc55deb85495%26url%3Dhttps%3A%2F%2Fcube.meituan.com%2Fawp%2Fhfe%2Fblock%2Fa945391288b790d558b7%2F78716%2Findex.html%3Fappkey%3D55eeb1ec1cabb50bcba3261cc55deb85495%3A196483%26sid%3D196483&f_userId=1&f_token=1"
+			// 	},
+			// 	"name": "第五个红包",
+			// 	"tabId": 2,
+			// 	"type": 1,
+			// 	"url": "https://runion.meituan.com/url?key=55eeb1ec1cabb50bcba3261cc55deb85495&url=https://cube.meituan.com/awp/hfe/block/a945391288b790d558b7/78716/index.html?appkey=55eeb1ec1cabb50bcba3261cc55deb85495:196483&sid=196483&f_userId=1&f_token=1"
 			// },
 			{
 				"name": "成员猜猜猜",
@@ -93,6 +117,30 @@
 				"minapp": {
 					"appid": "wx65037463c0fc3d84",
 					"path": "pages/movie/movie?refer_userId=1061263"
+				}
+			},
+			{
+				"bannerPic": "https://shop.2dan88.com/minipro/hbbanner.jpg",
+				"icon": "https://shop.2dan88.com/minipro/didi.jpg",
+				"minapp": {
+					"appid": "wxaf35009675aa0b2a",
+					"path": "passenger-recommend/views/homepage/index.html?template=1&sharecode=bvnhofeqjgtiooqjfn70&root_dchn=w0WWXX&channel_id=1100000090&scene=14"
+				},
+				"name": "滴滴打车券",
+				"tabId": 3,
+				"type": 1,
+				"url": ""
+			},
+			{
+				"name": "嘀嗒出行",
+				"icon": "https://shop.2dan88.com/minipro/ddlg.jpg",
+				"bannerPic": "https://shop.2dan88.com/minipro/ddbanner.jpg",
+				"url": "",
+				"type": 1,
+				"tabId": 3,
+				"minapp": {
+					"appid": "wx7f9416391161a1a0",
+					"path": "pages/uniformlogin?backurl=%2Fpages%2Fwebviewact%3Furl%3Dhttps%253A%252F%252Fa-m.didachuxing.com%252Fdida%252Fcarpool%252Fdriverinvite%252Findex.html%253Ftype%253D1%2526invitecode%253D78kea484yt&style="
 				}
 			},
 			{
@@ -141,11 +189,11 @@
 				"text": "饿了么",
 				"tabId": 1
 			},
-			// {
-			// 	"icon": "/static/meituan.png",
-			// 	"text": "美团",
-			// 	"tabId": 2
-			// },
+			{
+				"icon": "/static/meituan.png",
+				"text": "美团",
+				"tabId": 2
+			},
 			{
 				"icon": "https://shop.2dan88.com/minipro/taxi.jpeg",
 				"text": "打车",
