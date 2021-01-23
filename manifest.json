@@ -45,9 +45,14 @@
         "appid" : "wx3541b9858826184a",
         "setting" : {
             "urlCheck" : false,
-            "es6" : true
+            "es6" : true,
+            "minified" : true
         },
-        "permission" : {}
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "获取周边美食"
+            }
+        }
     },
     "h5" : {
         "optimization" : {

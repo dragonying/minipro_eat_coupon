@@ -571,6 +571,9 @@ radio.white.checked .uni-radio-input {
 	--ShadowSize: 0upx 40upx 100upx 0upx;
 }
 
+.shadow-box{
+	box-shadow: 0 0 10upx rgba(0, 0, 0, 0.2);
+}
 .shadow-warp {
 	position: relative;
 	box-shadow: 0 0 10upx rgba(0, 0, 0, 0.1);

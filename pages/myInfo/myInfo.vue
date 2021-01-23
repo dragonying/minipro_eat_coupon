@@ -1,7 +1,7 @@
 <template>
 	<scroll-view scroll-y class="scrollPage">
 
-		<view class="UCenter-bg bg-gradual-orange padding radius text-center shadow-blur">
+		<view class="UCenter-bg bg-gradual-red padding radius text-center shadow-blur">
 			<image :src="pic" class="png" mode="widthFix" style="border-radius: 50%;"></image>
 
 			<view class="margin-top-sm">
@@ -42,7 +42,7 @@
 	     </view>
 	   </view>
 	  </view> -->
-		<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius shadow-box">
 			<view class="cu-item arrow" @tap="showQrcode">
 				<view class="content">
 					<text class="cuIcon-appreciate text-red"></text>
@@ -50,7 +50,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius shadow-box">
 			<view class="cu-item arrow" @tap="showMy">
 				<view class="content" bindtap="">
 					<text class="cuIcon-comment text-red"></text>
@@ -72,7 +72,6 @@
 		data() {
 			return {
 				hasLogin: false,
-
 				pic: require('../../static/touxiang.png'),
 				name: '我要干饭了',
 				sex: '你猜',

@@ -19,7 +19,7 @@ export default {
 	},
 	globalData: {
 		api: {
-			home: 'https://b0dd3fd3-6730-46ef-ab16-a0f3afe83bc1.bspapp.com/http/api/home'
+			home: 'https://eb63f7cf-573f-4070-a944-d5ac57d4acfa.bspapp.com/http/api/home'
 		},
 	}
 
@@ -29,6 +29,7 @@ export default {
 <style lang="scss">
 @import "colorui/main.css";
 @import "colorui/icon.css";
+@import "iconfont/iconfont.css";
 page{
   height: 100%;
   -webkit-overflow-scrolling : touch;

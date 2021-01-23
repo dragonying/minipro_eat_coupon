@@ -1,7 +1,5 @@
 {
-	"pages": [
-		//pages数组中第一项表示应用启动页,
-		{
+	"pages": [{
 			"path": "pages/eatWhat/eatWhat",
 			"style": {
 				"navigationBarTitleText": "干饭啦"
@@ -11,6 +9,12 @@
 			"path": "pages/getCoupon/getCoupon",
 			"style": {
 				"navigationBarTitleText": "领券"
+			}
+		},
+		{
+			"path": "pages/djt/djt",
+			"style": {
+				"navigationBarTitleText": "鸡汤"
 			}
 		},
 		{
@@ -24,20 +28,27 @@
 		}
 	],
 	"tabBar": {
-		"color": "#7a7e83",
-		"selectedColor": "#fd8a07",
+		"color": "#666666",
+		"selectedColor": "#FD575C",
+		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
 		"list": [{
 				"pagePath": "pages/eatWhat/eatWhat",
-				"text": "该吃啥",
-				"iconPath": "static/eat.png",
-				"selectedIconPath": "static/eated.png"
+				"text": "吃啥",
+				"iconPath": "static/whatwedo.png",
+				"selectedIconPath": "static/whatwedo-active.png"
 			},
 			{
 				"pagePath": "pages/getCoupon/getCoupon",
-				"text": "领饭票",
+				"text": "饭票",
 				"iconPath": "static/coupon.png",
 				"selectedIconPath": "static/couponed.png"
+			},
+			{
+				"pagePath": "pages/djt/djt",
+				"text": "鸡汤",
+				"iconPath": "static/jt.png",
+				"selectedIconPath": "static/jt-active.png"
 			},
 			{
 				"pagePath": "pages/myInfo/myInfo",
@@ -49,8 +60,9 @@
 	},
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarBackgroundColor": "#fd8a07",
-		"backgroundColor": "#fbf9fe"
+		"navigationBarTitleText": "内部专享优惠",
+		"navigationBarBackgroundColor": "#FD575C",
+		"backgroundColor": "#F2F2F2"
 	},
 	"condition": {
 		//模式配置，仅开发期间生效

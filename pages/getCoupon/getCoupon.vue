@@ -1,22 +1,25 @@
 <template>
 	<view class="container">
 		<tounchButton></tounchButton>
-		<v-tabs v-model="current" :tabs="tabs" @change="changeTab" class="tab"></v-tabs>
+		<!-- <subButton></subButton> -->
+		<addTip :tip="tip" :duration="duration"></addTip>
+		<v-tabs v-model="current" :tabs="tabs" @change="changeTab" class="tab shadow-box"></v-tabs>
 		<view class="coupon" ref="coupon">
-			<view class="item" v-for="(v, i) in couponList" @click="toCoupon(i)" :key="i">
-				<view class="top">
-					<view class="left">
-						<view class="content">
-							<image :src="v.icon" class="icon" mode="widthFix" />
-							<view class="name">{{ v.name }}</view>
+			<view class="item shadow-warp" v-for="(v, i) in couponList" @click="toCoupon(i)" :key="i">
+				<view class='card'>
+					<view class="top">
+						<view class="left">
+							<view class="content">
+								<image :src="v.icon" class="icon" mode="widthFix" />
+								<view class="name">{{ v.name }}</view>
+							</view>
+							<view class="text">{{v.type}}</view>
 						</view>
-						<view class="text" v-if="v.type == 1">天天可领</view>
-						<view class="text" v-else-if="v.type == 2">限时秒杀</view>
+						<view class="right">免费领取</view>
 					</view>
-					<view class="right" v-show="shareType.includes(v.type)">免费领取</view>
-				</view>
-				<view class="bottom">
-					<image :src="v.bannerPic" mode="widthFix" />
+					<view class="bottom">
+						<image :src="v.bannerPic" mode="widthFix" />
+					</view>
 				</view>
 			</view>
 		</view>
@@ -25,9 +28,14 @@
 
 <script>
 	import tounchButton from '../../components/tounch-button/tounch-button.vue'
+	import addTip from '../../components/add-tip/add-tip.vue'
+	// import subButton from '../../components/sub-button/sub-button.vue'
+
 	export default {
 		components: {
-			tounchButton
+			tounchButton,
+			addTip
+			// subButton
 		},
 		data() {
 			return {
@@ -35,12 +43,15 @@
 				current: 0,
 				tabs: [],
 				couponList: [],
-				coupons: []
+				coupons: [],
+				tip: "点击「添加小程序」，下次访问更便捷",
+				duration: 5
 			};
 		},
 		onLoad(e) {
 			uni.showLoading({
-				title: '获取优惠中'
+				title: '获取优惠中',
+				duration: 5000
 			});
 			this.getHome()
 			//#ifdef H5
@@ -55,7 +66,6 @@
 				}
 			}
 			this.changeTab(this.current)
-
 		},
 		onShareAppMessage(res) {
 			var messages = [{
@@ -123,14 +133,13 @@
 		},
 		methods: {
 			changeTab(index) {
-				uni.showLoading({
-					title: '数据加载中'
-				});
-				console.log('当前选中的项：' + index);
 				this.couponList = []
 
 				if (index == 0) {
 					this.couponList = this.coupons
+					setTimeout(() => {
+						uni.hideLoading()
+					}, 200)
 				} else {
 					for (let i in this.coupons) {
 						if (this.coupons[i].tabId == this.tabs[index].tabId) {
@@ -143,9 +152,9 @@
 					this.$refs.coupon.scrollTop = 0;
 				})
 				//#endif
-				setTimeout(() => {
-					uni.hideLoading()
-				}, 500)
+				// setTimeout(() => {
+				// 	uni.hideLoading()
+				// }, 200)
 
 			},
 			toCoupon(i) {
@@ -174,8 +183,6 @@
 						this.tabs = res.data.data.tabs
 						this.coupons = res.data.data.coupons
 						this.changeTab(0)
-						uni.hideLoading()
-
 					}
 				});
 			}
@@ -207,8 +214,14 @@
 			.item {
 				background-color: #ffffff;
 				margin: 30rpx;
-				border-radius: 10rpx;
+				border-radius: 20rpx;
 				padding: 0 30rpx 30rpx 30rpx;
+
+				// .card {
+				// 	padding: 20rpx;
+				// 	background-color: #FFFFFF;
+				// 	border-radius: 10rpx;
+				// }
 
 				.top {
 					height: 116rpx;
@@ -246,7 +259,7 @@
 						}
 
 						.text {
-							width: 150rpx;
+							width: 200rpx;
 							height: 38rpx;
 							line-height: 38rpx;
 							text-align: center;
@@ -270,13 +283,15 @@
 				}
 
 				.bottom {
-					height: auto;
+					height: 300rpx;
 					width: 100%;
+					overflow: hidden;
+					border-radius: 20rpx;
 
 					image {
 						display: block;
 						width: 100%;
-						height: auto;
+						height: 100%;
 					}
 				}
 			}

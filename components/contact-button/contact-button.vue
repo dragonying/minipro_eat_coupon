@@ -1,14 +1,12 @@
 <template>
-	<view>
+	<view class="">
 		<movable-area>
-
-			<movable-view :x="x" :y="y1" direction="all">
-				<button class="selfbutton cuIcon-share" open-type="share">
+			<movable-view :x="x" :y="y2" direction="all">
+				<button class="selfbutton cuIcon-service" style="font-size: 60rpx;" open-type="contact">
 				</button>
 			</movable-view>
 		</movable-area>
 	</view>
-
 </template>
 
 <script>
@@ -24,21 +22,7 @@
 				y2: windowHeight - 120,
 			}
 		},
-		onShareAppMessage(res) {
-			var messages = [{
-				title: '美团饿了么大额红包，每日可领！',
-				path: '/pages/getCoupon/getCoupon'
-			}, {
-				title: '吃了这么多年外卖，你知道这个秘密吗？',
-				path: '/pages/getCoupon/getCoupon'
-			}];
-			return messages[Math.floor(Math.random() * messages.length)];
-		},
-		methods: {
-			share() {
-
-			}
-		}
+		methods: {}
 	}
 </script>
 
@@ -84,3 +68,4 @@
 		pointer-events: auto;
 	}
 </style>
+
