@@ -29,7 +29,7 @@
 						</button>
 					</view>
 					<view id="showRestaurant" @click="showRestaurant" v-if="showRoom">
-						<image src="../../static/cousor.png"></image>
+						<image src="../../static/icon/cousor.png"></image>
 						<text>点击查看餐厅详情</text>
 					</view>
 				</view>
@@ -74,9 +74,9 @@
 		components: {
 			tounchButton
 		},
-
 		data() {
 			return {
+				musicIsPlay: false,
 				timer: null, //定时器
 				isRunning: false, //运行吃什么的状态
 				type: "human", //吃的类型
@@ -158,7 +158,9 @@
 		},
 		//页面隐藏时
 		onHide() {
-			this.clearTimerArr()
+			uni.pauseBackgroundAudio();
+			this.musicIsPlay = false;
+			this.clearTimerArr();
 		},
 		methods: {
 			clearTimerArr() {
@@ -179,7 +181,7 @@
 						!this.isHuman && uni.showToast({
 							title: msg_tip[this.random(msg_tip.length - 1)],
 							icon: "none",
-							position:'top'
+							position: 'top'
 						});
 				} else {
 					this.isRunning = true
@@ -209,7 +211,7 @@
 						n++
 						_this.timer = setTimeout(() => {
 							t()
-							_this.tempFoods.length > 100 && _this.tempFoods.splice(0, 100)
+							_this.tempFoods.length > 70 && _this.tempFoods.splice(0, 70)
 							let tm = setTimeout(() => {
 								_this.tempFoods.shift()
 							}, 200 * n)
@@ -353,11 +355,14 @@
 			},
 		},
 		onShow: function() {
-			// wx.playBackgroundAudio({
-			// 	dataUrl: 'https://shop.2dan88.com/minipro/eatsong.mp3',
-			// 	title: '干饭人之歌',
-			// 	coverImgUrl: 'https://shop.2dan88.com/minipro/mp3.jpg'
-			// })
+			if (!this.musicIsPlay) {
+				uni.playBackgroundAudio({
+					dataUrl: 'https://shop.2dan88.com/minipro/eatsong.mp3',
+					title: '干饭人之歌',
+					coverImgUrl: 'https://shop.2dan88.com/minipro/mp3.jpg'
+				})
+				this.musicIsPlay = true
+			}
 		},
 		onShareAppMessage: function(n) {
 			let t = this.eatTime
@@ -637,6 +642,7 @@
 			flex-direction: row;
 			-webkit-box-pack: center;
 			justify-content: center;
+			margin-top: 20rpx;
 
 			.shareApp {
 				width: 160rpx;

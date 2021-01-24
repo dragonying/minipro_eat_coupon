@@ -44,9 +44,10 @@
     "mp-weixin" : {
         "appid" : "wx3541b9858826184a",
         "setting" : {
-            "urlCheck" : false,
+            "urlCheck" : true,
             "es6" : true,
-            "minified" : true
+            "minified" : true,
+            "postcss" : true
         },
         "permission" : {
             "scope.userLocation" : {

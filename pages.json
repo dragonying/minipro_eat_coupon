@@ -18,6 +18,17 @@
 			}
 		},
 		{
+			"path": "pages/music/index",
+			"style": {
+				"navigationStyle": "custom",
+				"onReachBottomDistance": 50,
+				"app-plus": {
+					"titleNView": false, //禁用原生导航栏
+					"softinputNavBar": "none"
+				}
+			}
+		},
+		{
 			"path": "pages/myInfo/myInfo",
 			"style": {
 				"navigationStyle": "custom",
@@ -35,26 +46,32 @@
 		"list": [{
 				"pagePath": "pages/eatWhat/eatWhat",
 				"text": "吃啥",
-				"iconPath": "static/whatwedo.png",
-				"selectedIconPath": "static/whatwedo-active.png"
+				"iconPath": "static/icon/whatwedo.png",
+				"selectedIconPath": "static/icon/whatwedo-active.png"
 			},
 			{
 				"pagePath": "pages/getCoupon/getCoupon",
 				"text": "饭票",
-				"iconPath": "static/coupon.png",
-				"selectedIconPath": "static/couponed.png"
+				"iconPath": "static/icon/coupon.png",
+				"selectedIconPath": "static/icon/couponed.png"
 			},
 			{
 				"pagePath": "pages/djt/djt",
 				"text": "鸡汤",
-				"iconPath": "static/jt.png",
-				"selectedIconPath": "static/jt-active.png"
+				"iconPath": "static/icon/jt.png",
+				"selectedIconPath": "static/icon/jt-active.png"
+			},
+			{
+				"pagePath": "pages/music/index",
+				"text": "音乐",
+				"iconPath": "static/icon/music.png",
+				"selectedIconPath": "static/icon/music-active.png"
 			},
 			{
 				"pagePath": "pages/myInfo/myInfo",
 				"text": "我的",
-				"iconPath": "static/my.png",
-				"selectedIconPath": "static/myed.png"
+				"iconPath": "static/icon/my.png",
+				"selectedIconPath": "static/icon/myed.png"
 			}
 		]
 	},
