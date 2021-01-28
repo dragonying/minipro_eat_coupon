@@ -63,7 +63,7 @@
 			},
 			{
 				"pagePath": "pages/music/index",
-				"text": "音乐",
+				"text": "心悦",
 				"iconPath": "static/icon/music.png",
 				"selectedIconPath": "static/icon/music-active.png"
 			},

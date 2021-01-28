@@ -207,7 +207,9 @@
 				this.audio.src = src
 				this.initMusicData()
 				if (src) {
-					this.play()
+					this.play();
+				}else{
+					this.audio.stop();
 				}
 			}
 		}

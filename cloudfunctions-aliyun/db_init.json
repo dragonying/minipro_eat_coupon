@@ -5,11 +5,23 @@
 				"icon": "/static/icon/ele.png",
 				"bannerPic": "https://shop.2dan88.com/minipro/lmhb.jpg",
 				"url": "https://s.click.ele.me/z202Vsu",
-				"type": "天天领",
+				"type": "吃饭天天领",
 				"tabId": 2,
 				"minapp": {
 					"appid": "wxece3a9a4c82f58c9",
 					"path": "taoke/pages/shopping-guide/index?scene=7P9IJsu"
+				}
+			},
+			{
+				"name": "最新大红包",
+				"icon": "/static/icon/ele.png",
+				"bannerPic": "https://shop.2dan88.com/minipro/ttlhb.jpg",
+				"url": "https://s.click.ele.me/Qk1pZsu",
+				"type": "吃饭天天领",
+				"tabId": 2,
+				"minapp": {
+					"appid": "wxece3a9a4c82f58c9",
+					"path": "ele-recommend-price/pages/guest/index?inviterId=4f1709d&chInfo=ch_wechat_chsub_Card"
 				}
 			},
 			{
@@ -34,18 +46,6 @@
 				"minapp": {
 					"appid": "wxece3a9a4c82f58c9",
 					"path": "pages/sharePid/web/index?scene=https://s.click.ele.me/TFUKJsu"
-				}
-			},
-			{
-				"name": "最新大红包",
-				"icon": "/static/icon/ele.png",
-				"bannerPic": "https://shop.2dan88.com/minipro/ttlhb.jpg",
-				"url": "https://s.click.ele.me/Qk1pZsu",
-				"type": "天天领",
-				"tabId": 2,
-				"minapp": {
-					"appid": "wxece3a9a4c82f58c9",
-					"path": "ele-recommend-price/pages/guest/index?inviterId=4f1709d&chInfo=ch_wechat_chsub_Card"
 				}
 			},
 			{

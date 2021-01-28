@@ -1,58 +1,63 @@
 <template>
 	<view>
-		<music-top :content="userSongs[now].name"></music-top>
-		<scroll-view scroll-y class="DrawerPage" :class="modalName=='viewModal'?'show':''">
-			<view>
-				<carousel :img-list="userSongs" url-key="pic" @selected="selectedBanner" />
-				<imt-audio autoplay continue :src="userSongs[now].music" :duration="userSongs[now].duration" @prev="prev" @next="next">
-					<rich-text :nodes="userSongs[now].geci" style="text-align: center;" slot="content"></rich-text>
-				</imt-audio>
-				<view class="text-center rowline">
-					<view class='bg-gradual-purple lg block shadow radius btn' @tap="showModal" data-target="viewModal">
-						歌曲库
-					</view>
-					<view class="bg-gradual-purple lg block shadow radius btn" @tap="showModal" data-target="RadioModal">
-						点歌
-					</view>
-				</view>
-				<view class="cu-modal" :class="modalName=='RadioModal'?'show':''" @tap="hideModal">
-					<view class="cu-dialog" @tap.stop="">
-						<view class="search-bar cu-bar search bg-night">
-							<view class="search-form round">
-								<text class="cuIcon-search"><text class="text-mauve">{{platname}}</text></text>
-								<input :adjust-position="false" type="text" @confirm="searchMusic" placeholder="搜索歌名" confirm-type="search"></input>
-							</view>
-							<button size="mini" class="setting" @click="selectPlatForm">
-								切换频道
-							</button>
-						</view>
-						<scroll-view scroll-y="true" class="content1 bg-night">
-							<view>
-								<view class="list" v-for="(item,key) in songList" :key="item.songid" @click="diange(key)">
-									<image :src="item.pic" mode="scaleToFill"></image>
-									<text>{{item.name}} - {{item.author}}</text>
-									<view class="btn" @click="addMusic(item)">+</view>
-								</view>
-							</view>
-						</scroll-view>
-					</view>
-				</view>
-			</view>
-		</scroll-view>
-		<view class="DrawerClose" :class="modalName=='viewModal'?'show':''" @tap="hideModal">
-			<text class="cuIcon-pullright"></text>
+		<view v-if="showFood">
+			<foot-art></foot-art>
 		</view>
-		<scroll-view scroll-y class="DrawerWindow" :class="modalName=='viewModal'?'show':''">
-			<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
-				<view class="content">
-					<view class="list" :class="{active:key===now}" v-for="(item,key) in userSongs" :key="key" @click="choiceSong(key)">
-						<image :src="item.pic" mode="scaleToFill"></image>
-						<text>{{item.name}} - {{item.author}}</text>
-						<view class="btn cute" @click.stop="cutMusic(key)">-</view>
+		<view v-else>
+			<music-top :content="userSongs[now].name"></music-top>
+			<scroll-view scroll-y class="DrawerPage" :class="modalName=='viewModal'?'show':''">
+				<view>
+					<carousel :img-list="userSongs" url-key="pic" @selected="selectedBanner" />
+					<imt-audio continue :src="userSongs[now].music" :duration="userSongs[now].duration" @prev="prev" @next="next">
+						<rich-text :nodes="userSongs[now].geci" style="text-align: center;" slot="content"></rich-text>
+					</imt-audio>
+					<view class="text-center rowline">
+						<view class='bg-gradual-purple lg block shadow radius btn' @tap="showModal" data-target="viewModal">
+							歌曲库
+						</view>
+						<view class="bg-gradual-purple lg block shadow radius btn" @tap="showModal" data-target="RadioModal">
+							点歌
+						</view>
+					</view>
+					<view class="cu-modal" :class="modalName=='RadioModal'?'show':''" @tap="hideModal">
+						<view class="cu-dialog" @tap.stop="">
+							<view class="search-bar cu-bar search bg-night">
+								<view class="search-form round">
+									<text class="cuIcon-search"><text class="text-mauve">{{platname}}</text></text>
+									<input :adjust-position="false" type="text" @confirm="searchMusic" placeholder="搜索歌名" confirm-type="search"></input>
+								</view>
+								<button size="mini" class="setting" @click="selectPlatForm">
+									切换频道
+								</button>
+							</view>
+							<scroll-view scroll-y="true" class="content1 bg-night">
+								<view>
+									<view class="list" v-for="(item,key) in songList" :key="item.songid" @click="diange(item)">
+										<image :src="item.pic" mode="scaleToFill"></image>
+										<text>{{item.name}} - {{item.author}}</text>
+										<view class="btn" @click.stop="addMusic(item)">+</view>
+									</view>
+								</view>
+							</scroll-view>
+						</view>
 					</view>
 				</view>
+			</scroll-view>
+			<view class="DrawerClose" :class="modalName=='viewModal'?'show':''" @tap="hideModal">
+				<text class="cuIcon-pullright"></text>
 			</view>
-		</scroll-view>
+			<scroll-view scroll-y class="DrawerWindow" :class="modalName=='viewModal'?'show':''">
+				<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
+					<view class="content">
+						<view class="list" :class="{active:key===now}" v-for="(item,key) in userSongs" :key="key" @click="choiceSong(key)">
+							<image :src="item.pic" mode="scaleToFill"></image>
+							<text>{{item.name}} - {{item.author}}</text>
+							<view class="btn cute" @click.stop="cutMusic(key)">-</view>
+						</view>
+					</view>
+				</view>
+			</scroll-view>
+		</view>
 	</view>
 </template>
 
@@ -63,23 +68,29 @@
 	import imtAudio from '@/components/imt-audio/imt-audio'
 	import carousel from '@/components/vear-carousel/vear-carousel'
 	import musicTop from '@/components/music-top/music-top'
+	import footArt from '@/components/food-art/foot-art'
+
 	import {
 		musicCache
 	} from '@/vendor/storage'
-	const SONGURL = 'http://www.depmusic.com/song.php'
+	const SONGURL = 'https://shop.2dan88.com/song.php'
 	export default {
 		components: {
 			imtAudio,
 			carousel,
-			musicTop
+			musicTop,
+			footArt
 		},
 		data() {
 			return {
+				showFood: (new Date().getTime()) < (new Date('2021-1-28').getTime()),
 				radio: '',
 				themeList: [],
+				tempSongs: [], //临时歌单
 				modalName: null,
+				songName: '',
 				songList: [],
-				platKey: '163', //平台key
+				platKey: 'kugou', //平台key
 				platForm: [{
 						title: '网易云音乐',
 						key: '163'
@@ -186,6 +197,10 @@
 		},
 		onShow() {
 			uni.hideTabBar();
+			!this.now && (this.now = 0);
+		},
+		onHide() {
+			this.now = null
 		},
 		onLoad() {
 			uni.showLoading({
@@ -210,6 +225,13 @@
 					itemList: this.platForm.map(v => v.title),
 					success: (res) => {
 						this.platKey = this.platForm[res.tapIndex].key
+						if (this.songName.length) {
+							this.searchMusic({
+								detail: {
+									value: this.songName
+								}
+							});
+						}
 					},
 					fail: function(res) {
 						console.log(res.errMsg);
@@ -232,9 +254,17 @@
 			},
 			// 添加音乐
 			addMusic(obj) {
-				this.userSongs.unshift(obj)
-				musicCache.set(this.userSongs)
-				this.now = 0
+				let index = this.userSongs.findIndex(v => v.songid === obj.songid);
+				if (index < 0) {
+					this.userSongs.unshift(obj)
+					musicCache.set(this.userSongs)
+					this.now = 0
+				} else {
+					this.now = index
+				}
+				let tempIndex = this.tempSongs.findIndex(v => v.songid === obj.songid);
+				tempIndex > -1 && this.tempSongs.splice(tempIndex, 1);
+
 				uni.showToast({
 					title: '已添加到歌单',
 					mask: true
@@ -264,6 +294,7 @@
 			//音乐查询
 			searchMusic(e) {
 				let sname = e.detail.value.trim();
+				this.songName = sname
 				if (!sname.length) {
 					uni.showToast({
 						title: '请输入歌名',
@@ -289,9 +320,9 @@
 					},
 					success: (res) => {
 						res.data.code === 200 ? this.songList = res.data.data : uni.showToast({
-							title: res.data.error+"切换其他频道试试吧(〃'▽'〃)",
+							title: res.data.error + "切换其他频道试试吧(〃'▽'〃)",
 							icon: 'none',
-							duration:3000
+							duration: 3000
 						});
 					},
 					fail: (error) => {
@@ -320,15 +351,29 @@
 				}
 				this.name = list
 			},
-			diange(e) {
-				this.now = e.songid
-				this.modalName = null
+			diange(obj) {
+				let songIndex = this.userSongs.findIndex(v => v.songid === obj.songid);
+				if (songIndex < 0) {
+					let tempIndex = this.tempSongs.findIndex(v => v.songid === obj.songid);
+					tempIndex < 0 && this.tempSongs.push(obj)
+					this.userSongs.push(obj)
+					this.now = 0
+				} else {
+					this.now = songIndex
+				}
+
+
 			},
 			showModal(e) {
 				this.modalName = e.currentTarget.dataset.target
 			},
 			hideModal(e) {
 				this.modalName = null
+				this.tempSongs.map(v => {
+					let idx = this.userSongs.findIndex(u => u.songid === v.songid);
+					idx > -1 && this.userSongs.splice(idx, 1)
+				});
+				this.tempSongs = [];
 			},
 
 			changeLang() {
@@ -350,7 +395,6 @@
 				let obj = this.themeList.filter(item => {
 					return item.name === name
 				})
-				// this.$store.commit('setThemeColor', obj[0])
 				this.modalName = ''
 			},
 

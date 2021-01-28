@@ -29,7 +29,7 @@
 						</button>
 					</view>
 					<view id="showRestaurant" @click="showRestaurant" v-if="showRoom">
-						<image src="../../static/icon/cousor.png"></image>
+						<image src="../../static/cousor.png"></image>
 						<text>点击查看餐厅详情</text>
 					</view>
 				</view>
